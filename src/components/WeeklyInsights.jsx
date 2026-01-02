@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
-import { BarChart2, Clock, CheckSquare, Zap, TrendingUp, Calendar } from 'lucide-react';
+import { BarChart2, Clock, CheckSquare, Zap, TrendingUp, Calendar, RotateCcw } from 'lucide-react';
 import './WeeklyInsights.css';
 
 const WeeklyInsights = () => {
@@ -60,9 +60,19 @@ const WeeklyInsights = () => {
         return `${h}h ${m}m`;
     };
 
+    const handleResetStreak = () => {
+        localStorage.removeItem('rex_streak_task');
+        window.dispatchEvent(new Event('rex-storage-update'));
+    };
+
     return (
         <div className="weekly-insights">
-            <h2><BarChart2 size={20} /> Weekly Review</h2>
+            <div className="insights-header">
+                <h2><BarChart2 size={20} /> Weekly Review</h2>
+                <button onClick={handleResetStreak} className="reset-streak-btn" title="Reset Task Streak">
+                    <RotateCcw size={14} /> Streak Reset
+                </button>
+            </div>
             <div className="insights-grid">
                 <div className="insight-card">
                     <Clock size={20} className="insight-icon" />

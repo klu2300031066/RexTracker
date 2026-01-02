@@ -66,7 +66,7 @@ const TodoList = () => {
                 {tasks.length === 0 && <div className="empty-state">No tasks for today!</div>}
 
                 {tasks.map(task => (
-                    <div key={task.id} className={`task - item ${task.completed ? 'completed' : ''} `}>
+                    <div key={task.id} className={`task-item ${task.completed ? 'completed' : ''} `}>
                         <button onClick={() => toggleTask(task.id)} className="check-btn">
                             {task.completed ? <CheckCircle size={20} color="#10b981" /> : <Circle size={20} />}
                         </button>

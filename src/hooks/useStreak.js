@@ -4,13 +4,24 @@ const useStreak = (storageKey) => {
     const [streak, setStreak] = useState(0);
     const [lastActiveDate, setLastActiveDate] = useState(null);
 
-    // Initialize from LocalStorage
+    // Initialize and listen for updates
     useEffect(() => {
-        const storedData = JSON.parse(localStorage.getItem(storageKey));
-        if (storedData) {
-            setStreak(storedData.streak || 0);
-            setLastActiveDate(storedData.lastActiveDate || null);
-        }
+        const loadStreak = () => {
+            const storedData = JSON.parse(localStorage.getItem(storageKey));
+            if (storedData) {
+                setStreak(storedData.streak || 0);
+                setLastActiveDate(storedData.lastActiveDate || null);
+            } else {
+                setStreak(0);
+                setLastActiveDate(null);
+            }
+        };
+
+        loadStreak();
+
+        const handleStorageUpdate = () => loadStreak();
+        window.addEventListener('rex-storage-update', handleStorageUpdate);
+        return () => window.removeEventListener('rex-storage-update', handleStorageUpdate);
     }, [storageKey]);
 
     const updateStreak = () => {

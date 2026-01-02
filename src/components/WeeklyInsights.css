@@ -6,6 +6,13 @@
     animation: fadeIn 0.5s ease-out;
 }
 
+.insights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0.5rem;
+}
+
 .weekly-insights h2 {
     font-size: 1.1rem;
     color: #e2e8f0;
@@ -13,6 +20,25 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.reset-streak-btn {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+}
+
+.reset-streak-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    transform: translateY(-1px);
 }
 
 .insights-grid {
