@@ -1,5 +1,5 @@
-import React from 'react';
 import { Play, Plus, Receipt } from 'lucide-react';
+
 import './QuickActions.css';
 
 const QuickActions = () => {
@@ -10,8 +10,7 @@ const QuickActions = () => {
             const startBtn = document.getElementById('study-timer-start-btn');
             if (timerWidget) {
                 timerWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Optional: Auto-click start if we want to be aggressive
-                // if (startBtn) startBtn.click();
+
             }
         } else if (type === 'task') {
             const taskInput = document.getElementById('todo-input');

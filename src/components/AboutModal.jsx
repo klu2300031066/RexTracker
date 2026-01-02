@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { X } from 'lucide-react';
 import './AboutModal.css';
 
@@ -22,7 +22,7 @@ const AboutModal = ({ isOpen, onClose }) => {
                         This project totally runs on the frontend and stores the data in your browser.
                     </p>
                     <p>
-                        It's easy and flexible to use. I would like to create more applications like this!
+                        It&apos;s easy and flexible to use. I would like to create more applications like this!
                     </p>
                 </div>
             </div>

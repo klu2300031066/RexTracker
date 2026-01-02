@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Clock as ClockIcon } from 'lucide-react';
 import './Clock.css';
 

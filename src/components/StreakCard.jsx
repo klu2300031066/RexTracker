@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flame } from 'lucide-react';
+import { Trophy, Flame } from 'lucide-react';
+
 import './StreakCard.css';
 
 const StreakCard = ({ streak, label = "Current Streak" }) => {
@@ -23,7 +23,7 @@ const StreakCard = ({ streak, label = "Current Streak" }) => {
                 <div className="streak-count">
                     {streak} Day{streak !== 1 ? 's' : ''}
                 </div>
-                {/* <div className="streak-label">{label}</div> */}
+
                 <div className="streak-message">{getMessage(streak)}</div>
             </div>
         </div>

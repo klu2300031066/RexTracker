@@ -1,4 +1,3 @@
-import React from 'react';
 import { useUser } from '../context/UserContext';
 import TodoList from '../components/TodoList';
 import { getFormattedDate } from '../utils/dateutils';
@@ -6,6 +5,7 @@ import Clock from '../components/Clock';
 import StudyTimer from '../components/StudyTimer';
 import ExpenseTracker from '../components/ExpenseTracker';
 import WeeklyInsights from '../components/WeeklyInsights';
+import InsightBot from '../components/InsightBot';
 import QuickActions from '../components/QuickActions';
 import useLocalStorage from '../hooks/useLocalStorage';
 import './DashboardHome.css';
@@ -33,6 +33,7 @@ const DashboardHome = () => {
 
     return (
         <div className="dashboard-home">
+            <InsightBot />
             <WeeklyInsights />
 
             <div className="dashboard-grid">
@@ -61,5 +62,6 @@ const DashboardHome = () => {
         </div>
     );
 };
+
 
 export default DashboardHome;

@@ -1,0 +1,93 @@
+.insight-bot-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease-out;
+}
+
+.insight-bot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* Mood Borders */
+.insight-bot-card.mood-excited {
+    border-left-color: #70a1ff;
+    background: linear-gradient(to right, #f0f4ff, #ffffff);
+}
+
+.insight-bot-card.mood-happy {
+    border-left-color: #1dd1a1;
+}
+
+.insight-bot-card.mood-concerned {
+    border-left-color: #ff6b6b;
+    background: #fff0f0;
+}
+
+.insight-bot-card.mood-neutral {
+    border-left-color: #a4b0be;
+}
+
+.bot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bot-message-container {
+    flex: 1;
+}
+
+.bot-message {
+    font-size: 0.95rem;
+    color: #2d3436;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode Support (Basic) */
+@media (prefers-color-scheme: dark) {
+    .insight-bot-card {
+        background: #2d3436;
+        color: #dfe6e9;
+    }
+
+    .bot-message {
+        color: #dfe6e9;
+    }
+
+    .insight-bot-card.mood-concerned {
+        background: #632d2d;
+    }
+
+    .insight-bot-card.mood-excited {
+        background: linear-gradient(to right, #2d3436, #363b3e);
+    }
+}

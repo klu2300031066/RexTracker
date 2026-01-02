@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import './LandingPage.css';
@@ -25,7 +25,7 @@ function LandingPage() {
         <div className="landing-page">
             <div className="welcome-text">Welcome to</div>
             <h1 className="hero-title">REX</h1>
-            <p className="sub-headline">Let's do your stuff today.</p>
+            <p className="sub-headline">Let&apos;s do it.</p>
 
             <div className="input-group">
                 <input

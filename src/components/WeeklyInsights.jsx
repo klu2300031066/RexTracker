@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { BarChart2, Clock, CheckSquare, Zap, TrendingUp, Calendar } from 'lucide-react';
 import './WeeklyInsights.css';
 
@@ -16,10 +16,10 @@ const WeeklyInsights = () => {
         }
     };
 
-    const [tick, setTick] = React.useState(0);
+    const [tick, setTick] = useState(0);
 
     // Listen for custom storage updates to trigger re-render
-    React.useEffect(() => {
+    useEffect(() => {
         const handleStorageChange = () => setTick(t => t + 1);
         window.addEventListener('rex-storage-update', handleStorageChange);
         return () => window.removeEventListener('rex-storage-update', handleStorageChange);
@@ -50,7 +50,7 @@ const WeeklyInsights = () => {
         const totalSpent = weeklyExpenses.reduce((acc, e) => acc + (e.amount || 0), 0);
 
         return { tasksCompleted, sessionsCompleted, focusMinutes, totalSpent };
-    }, [tick]); // Re-calculate when tick changes
+    }, [tick]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Helper to format minutes to HM
     const formatFocusTime = (mins) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, Coffee, Zap } from 'lucide-react';
 import useLocalStorage from '../hooks/useLocalStorage';
 import './StudyTimer.css';
@@ -47,6 +47,12 @@ const StudyTimer = () => {
         }
         return () => clearInterval(timerRef.current);
     }, [isActive, timeLeft, isBreak, durationInput, setSessions]);
+
+    // Sync active state to localStorage for the Bot
+    useEffect(() => {
+        localStorage.setItem('rex_timer_active', JSON.stringify(isActive));
+        window.dispatchEvent(new Event('rex-storage-update'));
+    }, [isActive]);
 
     const toggleTimer = () => setIsActive(!isActive);
     const resetTimer = () => {
